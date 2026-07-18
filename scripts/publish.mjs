@@ -144,6 +144,13 @@ function validateDraft(filename, fm) {
   // body
   if (!fm.body || fm.body.trim() === '') {
     errors.push('正文为空');
+  } else {
+    const charCount = fm.body.replace(/\s/g, '').length;
+    if (charCount > 1000) {
+      errors.push(`正文字数超限（当前 ${charCount} 字，小红书上限 1000 字）`);
+    } else if (charCount > 800) {
+      errors.push(`⚠️ 提醒: 正文字数接近上限（当前 ${charCount} 字，上限 1000 字）`);
+    }
   }
 
   // images
