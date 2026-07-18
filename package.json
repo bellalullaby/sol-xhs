@@ -1,0 +1,12 @@
+{
+  "name": "sol-xhs",
+  "version": "1.0.0",
+  "description": "太阳哥 × 酱酱 × 小克 — GPT 写稿 → 自动发小红书",
+  "type": "module",
+  "scripts": {
+    "publish": "node scripts/publish.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
