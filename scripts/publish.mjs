@@ -21,7 +21,11 @@ const ROOT = resolve(__dirname, '..');
 const DRAFTS = join(ROOT, 'drafts');
 const PUBLISHED = join(ROOT, 'published');
 const LOGS = join(ROOT, 'logs');
-const API_KEY = 'sk_GJYQYb_zJm_pDzSLTT2Uc3ZBidmOrGWScKWqmeaIf6Q=';
+const API_KEY = process.env.SOL_XHS_API_KEY;
+if (!API_KEY) {
+  console.error('❌ 请设置环境变量 SOL_XHS_API_KEY（从 aredink.com 获取）');
+  process.exit(1);
+}
 const MCP_URL = 'https://mcp.aredink.com/mcp';
 
 const CHECKLIST_URL = 'https://creator.xiaohongshu.com/publish/notes';
