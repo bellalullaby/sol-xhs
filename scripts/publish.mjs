@@ -112,6 +112,9 @@ function parseFrontmatter(content) {
       currentKey = key;
       inArray = true;
       arrayValues = [];
+    } else if (value.startsWith('[') && value.endsWith(']')) {
+      // 行内数组: tags: [a, b, c]
+      frontmatter[key] = value.slice(1, -1).split(',').map(s => s.trim());
     } else if (value.startsWith('"') && value.endsWith('"')) {
       frontmatter[key] = value.slice(1, -1);
     } else if (value.startsWith("'") && value.endsWith("'")) {
